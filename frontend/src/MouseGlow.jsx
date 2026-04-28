@@ -43,9 +43,6 @@ export default function MouseGlow() {
   }, []);
 
   return (
-    <>
-      <div className="mouse-glow-blob" ref={blobRef}></div>
-      <div className="mouse-glow-blur"></div>
-    </>
+    <div className="mouse-glow-blob" ref={blobRef}></div>
   );
 }
