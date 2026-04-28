@@ -1,6 +1,25 @@
 import { useState, useEffect } from 'react';
 import { api } from './api';
 
+const AlarmIcon = () => (
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ marginRight: '10px', verticalAlign: 'middle', color: '#a855f7' }}>
+    <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+    <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+  </svg>
+);
+
+const SleepIcon = () => (
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ marginRight: '10px', verticalAlign: 'middle', color: '#6366f1' }}>
+    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+  </svg>
+);
+
+const SparkleIcon = () => (
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ marginRight: '6px', verticalAlign: 'sub', color: '#10b981' }}>
+    <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/>
+  </svg>
+);
+
 export default function Dashboard({ token, onLogout }) {
   const [alarm, setAlarm] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -73,14 +92,14 @@ export default function Dashboard({ token, onLogout }) {
 
       <div className="grid">
         <section className="glass-panel alarm-section">
-          <h2>Next Alarm</h2>
+          <h2><AlarmIcon />Next Alarm</h2>
           {loading ? (
             <p className="loading-text">Loading...</p>
           ) : alarm ? (
             <div className="alarm-display">
               <div className="time-huge">{formatTime(alarm.adjusted_time || alarm.target_time)}</div>
-              <p className="alarm-detail">
-                {alarm.adjusted_time ? "Adjusted for traffic/weather" : "Original target time"}
+              <p className="alarm-detail" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                {alarm.adjusted_time ? <><SparkleIcon /> Adjusted for traffic/weather</> : "Original target time"}
               </p>
               <button onClick={handleSync} className="primary-btn sync-btn">Sync Calendar Again</button>
             </div>
@@ -93,7 +112,7 @@ export default function Dashboard({ token, onLogout }) {
         </section>
 
         <section className="glass-panel log-section">
-          <h2>Log Sleep</h2>
+          <h2><SleepIcon />Log Sleep</h2>
           {logStatus && <div className="status-msg">{logStatus}</div>}
           <form onSubmit={handleSleepLogSubmit} className="log-form">
             <div className="input-group">
