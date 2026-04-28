@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import Auth from './Auth';
 import Dashboard from './Dashboard';
+import MouseGlow from './MouseGlow';
 import './index.css';
 
 function App() {
@@ -24,13 +25,16 @@ function App() {
   };
 
   return (
-    <main className="app-main">
-      {token ? (
-        <Dashboard token={token} onLogout={handleLogout} />
-      ) : (
-        <Auth onLogin={handleLogin} />
-      )}
-    </main>
+    <>
+      <MouseGlow />
+      <main className="app-main">
+        {token ? (
+          <Dashboard token={token} onLogout={handleLogout} />
+        ) : (
+          <Auth onLogin={handleLogin} />
+        )}
+      </main>
+    </>
   );
 }
 

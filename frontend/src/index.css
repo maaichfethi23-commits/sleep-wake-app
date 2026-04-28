@@ -37,6 +37,8 @@ body {
   max-width: 1200px;
   padding: 2rem;
   box-sizing: border-box;
+  position: relative;
+  z-index: 10;
 }
 
 h1, h2, h3 {
@@ -218,4 +220,30 @@ input:focus {
   text-align: center;
   padding: 3rem 0;
   color: var(--text-muted);
+}
+
+/* Mouse Glow Effect */
+.mouse-glow-blob {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.4) 0%, rgba(99, 102, 241, 0.2) 50%, transparent 80%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+  will-change: transform;
+}
+
+.mouse-glow-blur {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 1;
+  backdrop-filter: blur(100px);
+  -webkit-backdrop-filter: blur(100px);
 }
