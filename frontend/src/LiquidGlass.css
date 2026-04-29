@@ -1,0 +1,163 @@
+.liquid-glass-page {
+  --bg: #fbfbfd;
+  --fg: #1d1d1f;
+  --fg-dark: #f5f5f7;
+  --muted: #6e6e73;
+  --link: #0066cc;
+  --border: 1px solid rgba(0, 0, 0, 0.08);
+
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.liquid-glass-page nav {
+  position: relative;
+  z-index: 10;
+  background: rgba(251, 251, 253, 0.8);
+  backdrop-filter: saturate(180%) blur(20px);
+  border-bottom: var(--border);
+}
+.liquid-glass-page nav ul {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  margin: 0;
+  padding: 0 24px;
+  list-style: none;
+  height: 44px;
+  align-items: center;
+  font-size: 0.82rem;
+}
+.liquid-glass-page nav a {
+  color: inherit;
+  text-decoration: none;
+  opacity: 0.85;
+}
+.liquid-glass-page nav a:hover {
+  opacity: 1;
+}
+
+.liquid-glass-page .hero {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: black;
+}
+.liquid-glass-page .hero img,
+.liquid-glass-page .tile img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.liquid-glass-page .hero img {
+  background: black;
+  opacity: 0.3;
+}
+.liquid-glass-page .copy {
+  text-align: center;
+}
+.liquid-glass-page .hero .copy {
+  position: absolute;
+  top: 30%;
+  left: 0;
+  right: 0;
+  transform: translateY(-50%);
+  color: #fff;
+}
+.liquid-glass-page .hero h1 {
+  font-size: 4.2rem;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  margin: 0 0 8px;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
+}
+.liquid-glass-page .hero h2 {
+  font-size: 1.7rem;
+  font-weight: 400;
+  margin: 0 0 18px;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
+}
+.liquid-glass-page .actions a {
+  text-decoration: none;
+  cursor: pointer;
+}
+.liquid-glass-page .actions a:hover {
+  text-decoration: underline;
+}
+.liquid-glass-page .hero .actions a {
+  color: #fff;
+  font-size: 1.2rem;
+  margin: 0 12px;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.3);
+}
+
+.liquid-glass-page .tiles {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  padding: 12px;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+.liquid-glass-page .tile {
+  position: relative;
+  border-radius: 18px;
+  overflow: hidden;
+  aspect-ratio: 4 / 5;
+  background: #1a1a1a;
+  isolation: isolate;
+}
+.liquid-glass-page .tile.full {
+  grid-column: 1 / -1;
+  aspect-ratio: 16 / 9;
+}
+.liquid-glass-page .tile .copy {
+  position: relative;
+  z-index: 1;
+  padding: 56px 24px 0;
+  color: var(--fg-dark);
+}
+.liquid-glass-page .tile .eyebrow {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin: 0 0 12px;
+  opacity: 0.85;
+}
+.liquid-glass-page .tile h3 {
+  font-size: 3rem;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  margin: 0 0 10px;
+}
+.liquid-glass-page .tile p {
+  font-size: 1.25rem;
+  margin: 0 0 18px;
+  opacity: 0.92;
+}
+.liquid-glass-page .tile .actions a {
+  color: var(--link);
+  font-size: 1.05rem;
+  margin: 0 10px;
+}
+
+.liquid-glass-page footer {
+  padding: 48px 24px 96px;
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.78rem;
+  border-top: var(--border);
+  margin-top: 24px;
+}
